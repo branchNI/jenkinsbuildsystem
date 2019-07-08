@@ -4,15 +4,15 @@ def call(viPath, utfPath, reportPath) {
 	node {
 		echo 'Starting Build...'
 
-		stage ('Simple VI Test') {
-			bat "LabVIEWCLI -OperationName RunVI -VIPath %CD%\\${viPath} hello"
-		}
-		
 		stage('SCM Checkout') {
 			echo 'Attempting to get source from repo...'
 			timeout(time: 4, unit: 'MINUTES') {
 				checkout scm
 			}
+		}
+		
+		stage ('Simple VI Test') {
+			bat "LabVIEWCLI -OperationName RunVI -VIPath %CD%\\${viPath} hello"
 		}
 		
 		echo 'Running unit tests...'
