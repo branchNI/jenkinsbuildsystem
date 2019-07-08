@@ -2,15 +2,22 @@
 
 def call(viPath, utfPath, reportPath) {
 	node {
-		echo 'Simple VI test'
+		echo 'Starting Build...'
 
-		stage ('Simple_VI_Test') {
+		stage ('Simple VI Test') {
 			bat "LabVIEWCLI -OperationName RunVI -VIPath %CD%\\${viPath} hello"
 		}
 		
-		echo 'Running unit tests'
+		stage('SCM Checkout') {
+			echo 'Attempting to get source from repo...'
+			timeout(time: 4, unit: 'MINUTES') {
+				checkout scm
+			}
+		}
 		
-		stage ('Unit_Tests') {
+		echo 'Running unit tests...'
+		
+		stage ('Unit Tests') {
 			bat "LabVIEWCLI -OperationName RunUnitTests -ProjectPath %CD%\\${utfPath} -JUnitReportPath + \${reportPath}"
 		}
 	}
