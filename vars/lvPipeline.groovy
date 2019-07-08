@@ -1,8 +1,18 @@
 #!/usr/bin/env groovy
 
-def call(viPath) {
+def call(viPath, utfPath, reportPath) {
 	node {
-		bat "LabVIEWCLI -OperationName RunVI -VIPath C:\\Users\\Brandon\\Desktop\\Hello.vi hello"
+		echo 'Simple VI test'
+
+		stage ('Simple_VI_Test') {
+			bat "LabVIEWCLI -OperationName RunVI -VIPath " + viPath + " hello"
+		}
+		
+		echo 'Running unit tests'
+		
+		stage ('Unit_Tests') {
+			bat "LabVIEWCLI -OperationName RunUnitTests -ProjectPath " + utfPath + " -JUnitReportPath " + reportPath
+		}
 	}
 }
 
