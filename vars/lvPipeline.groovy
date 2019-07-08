@@ -11,7 +11,7 @@ def call(viPath, utfPath, reportPath) {
 		echo 'Running unit tests'
 		
 		stage ('Unit_Tests') {
-			bat "LabVIEWCLI -OperationName RunUnitTests -ProjectPath %CD%\" + utfPath + " -JUnitReportPath " + reportPath
+			bat "LabVIEWCLI -OperationName RunUnitTests -ProjectPath %CD%\" + utfPath + " -JUnitReportPath " + reportPath"
 		}
 	}
 }
