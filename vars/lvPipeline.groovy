@@ -13,12 +13,14 @@ def call(viPath, utfPath, reportPath) {
 		
 		stage ('Simple VI Test') {
 			bat "LabVIEWCLI -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
+			sleep(2000)
 		}
 		
 		echo 'Running unit tests...'
 		
 		stage ('Unit Tests') {
 			bat "LabVIEWCLI -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath + \"\${reportPath}\""
+			sleep(2000)
 		}
 	}
 }
