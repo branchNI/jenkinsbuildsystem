@@ -1,10 +1,6 @@
 #!/usr/bin/env groovy
 def PULL_REQUEST = env.CHANGE_ID
 
-//ENTER THE FOLLOWING INFORMATION:
-def GITHUB_ACCESS_TOKEN = "5e22b4c1559ce4110deab2d2ecf18d991b57a8a9"
-def GITHUB_USERNAME = "BranchNI"
-def GITHUB_REPONAME = "jenkinstest"
 //ENTER THE ABOVE INFORMATION
 
 def call(viPath, utfPath, reportPath) {
@@ -18,7 +14,6 @@ def call(viPath, utfPath, reportPath) {
 			}
 		}
 
-		/*
 		stage ('Simple VI Test') {
 			bat "LabVIEWCLI -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
 			sleep(time: 3, unit: "SECONDS")
@@ -36,12 +31,14 @@ def call(viPath, utfPath, reportPath) {
 		stage('Diff') {
 			echo 'Diffed'
 		}
-		*/
+		
+		/*
 		echo 'Posting comment to PR...'
 		
 		stage('Comment') {
 			bat "python github_commenter.py -t \"${GITHUB_ACCESS_TOKEN}\" -d \"C:\\Users\\Brandon\\Documents\\Diffing\\output\" -p \"${PULL_REQUEST}\" -i \"${GITHUB_USERNAME}/${GITHUB_REPONAME}/pr-${PULL_REQUEST}\" -r \"${GITHUB_USERNAME}/${GITHUB_REPONAME}\""
 		}
+		*/
 	}
 }
 
