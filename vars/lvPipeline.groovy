@@ -18,7 +18,7 @@ def call(viPath, utfPath, reportPath) {
 			}
 		}
 
-		*/
+		/*
 		stage ('Simple VI Test') {
 			bat "LabVIEWCLI -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
 			sleep(time: 3, unit: "SECONDS")
