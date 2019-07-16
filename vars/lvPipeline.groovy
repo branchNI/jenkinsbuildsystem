@@ -1,11 +1,11 @@
 #!/usr/bin/env groovy
-def PULL_REQUEST = env.CHANGE_ID;
-def BRANCH_NAME = env.BRANCH_NAME;
+def PULL_REQUEST = env.CHANGE_ID
 
 //ENTER THE FOLLOWING INFORMATION:
-def GITHUB_ACCESS_TOKEN = "5e22b4c1559ce4110deab2d2ecf18d991b57a8a9";
+def GITHUB_ACCESS_TOKEN = "5e22b4c1559ce4110deab2d2ecf18d991b57a8a9"
 def GITHUB_USERNAME = "BranchNI"
 def GITHUB_REPONAME = "jenkinstest"
+//ENTER THE ABOVE INFORMATION
 
 def call(viPath, utfPath, reportPath) {
 	node {
