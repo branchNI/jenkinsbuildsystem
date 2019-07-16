@@ -17,7 +17,8 @@ def call(viPath, utfPath, reportPath) {
 				checkout scm
 			}
 		}
-		
+
+		*/
 		stage ('Simple VI Test') {
 			bat "LabVIEWCLI -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
 			sleep(time: 3, unit: "SECONDS")
@@ -35,11 +36,11 @@ def call(viPath, utfPath, reportPath) {
 		stage('Diff') {
 			echo 'Diffed'
 		}
-		
+		*/
 		echo 'Posting comment to PR...'
 		
 		stage('Comment') {
-			bat "python github_commenter.py -t \"${GITHUB_ACCESS_TOKEN}\" -d \"C:\\Users\\Brandon\\Documents\\Diffing\\output\" -p \"${PULL_REQUEST}\" -i \"${GITHUB_USERNAME}/${GITHUB_REPONAME}/pr-${PULL_REQUEST}\" -r \"${GITHUB_USERNAME}/${$GITHUB_REPONAME}\""
+			bat "python github_commenter.py -t \"{GITHUB_ACCESS_TOKEN}\" -d \"C:\\Users\\Brandon\\Documents\\Diffing\\output\" -p \"{PULL_REQUEST}\" -i \"{GITHUB_USERNAME}/{GITHUB_REPONAME}/pr-{PULL_REQUEST}\" -r \"{GITHUB_USERNAME}/{GITHUB_REPONAME}\""
 		}
 	}
 }
