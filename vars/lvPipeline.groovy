@@ -46,6 +46,8 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME) {
 		  bat 'mkdir DIFFDIR'
         }
 		
+		/*
+		
 		stage ('Simple VI Test') {
 			//bat "LabVIEWCLI -LabVIEWPATH ${lvPath} -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
 			bat "LabVIEWCLI -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
@@ -58,6 +60,8 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME) {
 			//bat "LabVIEWCLI -LabVIEWPATH ${lvPath} -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath \"%CD%\\TEMPDIR\\report.xml\""
 			bat "LabVIEWCLI -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath \"%CD%\\TEMPDIR\\report.xml\""
 		}
+		
+		*/
 		
 		echo 'Running diff...'
 		
