@@ -29,6 +29,11 @@ def call(viPath, utfPath, lvVersion, lvPath) {
 			timeout(time: 4, unit: 'MINUTES') {
 				checkout scm
 			}
+			
+			echo 'Cloning build tools...'
+			timeout(time: 5, unit: 'MINUTES') {
+				cloneBuildTools()
+			}
 		}
 
 		stage ('Create Directories'){
@@ -37,6 +42,7 @@ def call(viPath, utfPath, lvVersion, lvPath) {
         }
 		
 		stage ('Simple VI Test') {
+			//bat "LabVIEWCLI -LabVIEWPATH ${lvPath} -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
 			bat "LabVIEWCLI -LabVIEWPATH ${lvPath} -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
 			sleep(time: 3, unit: "SECONDS")
 		}
@@ -51,9 +57,6 @@ def call(viPath, utfPath, lvVersion, lvPath) {
 		echo 'Running diff...'
 		
 		// If this change is a pull request, diff the VIs.
-		echo 'CHANGE_ID: '
-		echo env.CHANGE_ID
-		
 		if (env.CHANGE_ID) {
 			stage ('Diff VIs'){
 				try {
