@@ -3,7 +3,7 @@ def PULL_REQUEST = env.CHANGE_ID
 
 //ENTER THE ABOVE INFORMATION
 
-def call(viPath, utfPath, lvVersion, lvPath) {
+def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME) {
 
 	switch(lvVersion){  //This is to abstract out the different Jenkinsfile conventions of setting version to 14.0 instead of 2014.
 	  case "18.0":
@@ -22,7 +22,7 @@ def call(viPath, utfPath, lvVersion, lvPath) {
 		
 		//TEST
 		echo 'job name: '
-		echo env.BUILD_URL
+		echo env.JOB_NAME
 
 		stage ('Pre-Clean'){
 		preClean()
@@ -36,7 +36,7 @@ def call(viPath, utfPath, lvVersion, lvPath) {
 			
 			echo 'Cloning build tools...'
 			timeout(time: 5, unit: 'MINUTES') {
-				cloneBuildTools()
+				cloneBuildTools(ORG_NAME)
 			}
 		}
 

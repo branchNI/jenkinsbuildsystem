@@ -1,8 +1,7 @@
-def call(){
+def call(ORG_NAME){
    echo 'Cloning build tools to workspace.'
    
-   def organization = getComponentParts()['organization']
    def branch = env."library.vs-build-tools.version"
-   buildToolsDir = cloneRepo("https://github.com/$organization/jenkinsbuildsystem", branch)
+   buildToolsDir = cloneRepo("https://github.com/$ORG_NAME/jenkinsbuildsystem", branch)
    return buildToolsDir
 }
