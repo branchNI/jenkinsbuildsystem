@@ -53,6 +53,8 @@ def call(viPath, utfPath, lvVersion) {
 		
 		echo 'Running diff...'
 		
+		/*
+		
 		// If this change is a pull request, diff the VIs.
 		echo 'CHANGE_ID: '
 		echo env.CHANGE_ID
@@ -70,6 +72,8 @@ def call(viPath, utfPath, lvVersion) {
 				}
 			}
 		}		
+		
+		*/
 		
 		/*
 		echo 'Posting comment to PR...'
