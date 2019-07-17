@@ -52,7 +52,7 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME, PIC_REPO) {
 			try {
 				timeout(time: 60, unit: 'MINUTES') {
 					lvUtf(lvVersion, "%CD%\\${utfPath}", "%CD%\\TEMPDIR\\report.xml")
-					echo 'Unit tests Succeeded!
+					echo 'Unit tests Succeeded!'
 				}
 				} catch (err) {
 					currentBuild.result = "SUCCESS"
