@@ -1,4 +1,4 @@
-def call(lvVersion, utf_path) {
+def call(lvVersion, utfPath) {
 	def stepsDir = "${WORKSPACE}\\jenkinsbuildsystem\\steps"
 	def reportPath = "${WORKSPACE}\\TEMPDIR\\report.xml"
 	def utfProjectPath = "${WORKSPACE}\\${utfPath}"
