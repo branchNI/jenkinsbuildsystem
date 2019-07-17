@@ -31,11 +31,13 @@ def call(viPath, utfPath, lvVersion) {
 			}
 		}
 
+/*
 		stage ('Create Directories'){
           bat 'mkdir TEMPDIR'
 		  bat 'mkdir PICREPO'
         }
-		
+	
+*/	
 		/*
 		
 		stage ('Simple VI Test') {
