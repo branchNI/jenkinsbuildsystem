@@ -46,12 +46,6 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME) {
 		  bat 'mkdir DIFFDIR'
         }
 		
-		stage ('Simple VI Test') {
-			//bat "LabVIEWCLI -LabVIEWPATH ${lvPath} -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
-			bat "LabVIEWCLI -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
-			sleep(time: 3, unit: "SECONDS")
-		}
-		
 		echo 'Running unit tests...'
 		
 		stage ('Unit Tests') {
