@@ -8,7 +8,7 @@ def call(lvVersion) {
 	
 	echo 'Running LabVIEW diff build between origin/master and this commit'
       
-    bat "python -u "${stepsDir}\\labview_diff.py" \"${WORKSPACE}\" \"${diffDir}\" ${lvVersion} --target=origin/master"
+    bat "python -u \"${stepsDir}\\labview_diff.py\" \"${WORKSPACE}\" \"${diffDir}\" ${lvVersion} --target=origin/master"
     
 	//bat "git difftool --no-prompt --extcmd=\"${WORKSPACE}\\jenkinsbuildsystem\\steps\\labview-diff.bat\" \$LOCAL \$REMOTE diff_dir ${lvVersion}\" origin/master HEAD"
 	
