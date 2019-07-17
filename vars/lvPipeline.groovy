@@ -48,7 +48,6 @@ def call(viPath, utfPath, lvVersion) {
 		
 		echo 'Running diff...'
 		
-		/*
 		// If this change is a pull request and the DIFFING_PIC_REPO variable is set on the jenkins master, diff the VIs.
 		if (env.CHANGE_ID && env.DIFFING_PIC_REPO) {
 		stage ('Diff VIs'){
@@ -61,7 +60,6 @@ def call(viPath, utfPath, lvVersion) {
 			currentBuild.result = "SUCCESS"
 			echo "Diff Failed: ${err}"
 		  }  
-		  */
 		
 		/*
 		echo 'Posting comment to PR...'
