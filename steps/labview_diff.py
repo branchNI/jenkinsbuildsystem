@@ -27,11 +27,13 @@ def diff_vi(old_vi, new_vi, output_dir, workspace, lv_version):
     command_args = [
         "LabVIEWCLI.exe",
         "-LabVIEWPath", version_path,
-        "-AdditionalOperationDirectory", workspace + r"\steps\operations\\",
+        "-AdditionalOperationDirectory", workspace + r"\jenkinsbuildsystem\lv\operations\\",
         "-OperationName", "DiffVI",
         "-NewVI", new_vi,
         "-OutputDir", output_dir,
     ]
+    
+    print("lv ops: " + workspace + r"\jenkinsbuildsystem\lv\operations\\")
 
     if old_vi:
         command_args.extend(["-OldVI", old_vi])
