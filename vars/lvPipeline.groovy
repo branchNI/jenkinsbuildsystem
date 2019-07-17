@@ -19,6 +19,10 @@ def call(viPath, utfPath, lvVersion, lvPath) {
 
 	node {
 		echo 'Starting Build...'
+		
+		//TEST
+		echo 'job name: '
+		echo env.JOB_NAME
 
 		stage ('Pre-Clean'){
 		preClean()
