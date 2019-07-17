@@ -50,16 +50,18 @@ def call(viPath, utfPath, lvVersion) {
 		
 		// If this change is a pull request and the DIFFING_PIC_REPO variable is set on the jenkins master, diff the VIs.
 		if (env.CHANGE_ID && env.DIFFING_PIC_REPO) {
-		stage ('Diff VIs'){
-		  try {
-			timeout(time: 60, unit: 'MINUTES') {
-			  lvDiff(lvVersion)
-			  echo 'Diff Succeeded!'
+			stage ('Diff VIs'){
+				try {
+				timeout(time: 60, unit: 'MINUTES') {
+				  lvDiff(lvVersion)
+				  echo 'Diff Succeeded!'
+				}
+				} catch (err) {
+				currentBuild.result = "SUCCESS"
+				echo "Diff Failed: ${err}"
+				}
 			}
-		  } catch (err) {
-			currentBuild.result = "SUCCESS"
-			echo "Diff Failed: ${err}"
-		  }  
+		}		
 		
 		/*
 		echo 'Posting comment to PR...'
