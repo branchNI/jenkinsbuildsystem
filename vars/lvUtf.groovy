@@ -1,8 +1,10 @@
-def call(lvVersion, utf_project_path, report_path) {
+def call(lvVersion, utf_path) {
 	def stepsDir = "${WORKSPACE}\\jenkinsbuildsystem\\steps"
+	def reportPath = "${WORKSPACE}\\TEMPDIR\\report.xml"
+	def utfProjectPath = "${WORKSPACE}\\${utfPath}"
 	
-	echo 'Running unit tests on \"${utf_project_path}\"'
+	echo 'Running unit tests on \"${utfProjectPath}\"'
 
-	bat python -u \"${stepsDir}\\labview_utf.py\" \"${utf_project_path\" \"${report_path}\" ${lvVersion}
+	bat python -u \"${stepsDir}\\labview_utf.py\" \"${utfProjectPath\" \"${reportPath}\" ${lvVersion}
 }
 
