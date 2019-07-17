@@ -10,7 +10,7 @@ def call(lvVersion) {
       
     //bat "python -u \"${stepsDir}\\labview_diff.py\" \"${WORKSPACE}\" \"${diffDir}\" ${lvVersion} --target=origin/master"
     
-	bat "python -u \"${stepsDir}\\labview_diff.py\" \"${WORKSPACE}\" \"${diffDir}\" ${lvVersion} --target=origin/myBranch"
+	bat "python -u \"${stepsDir}\\labview_diff.py\" \"${WORKSPACE}\" \"${diffDir}\" ${lvVersion} --target=origin/master"
     
 	
 	//bat "git difftool --no-prompt --extcmd=\"${WORKSPACE}\\jenkinsbuildsystem\\steps\\labview-diff.bat\" \$LOCAL \$REMOTE diff_dir ${lvVersion}\" origin/master HEAD"
