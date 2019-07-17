@@ -53,7 +53,6 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME) {
 			bat "LabVIEWCLI -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath \"%CD%\\TEMPDIR\\report.xml\""
 		}
 		
-		/*
 		echo 'Running diff...'
 		
 		// If this change is a pull request, diff the VIs.
@@ -70,8 +69,6 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME) {
 				}
 			}
 		}
-
-		*/
 	}
 }
 
