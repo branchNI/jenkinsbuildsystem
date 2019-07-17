@@ -15,5 +15,5 @@
 
 :DIFF_VI
     @REM labview-cli --kill --lv-ver %lv_version% L:\lvDiff.vi -- "%vi1%" "%vi2%" "%working_dir%"
-	LabVIEWCLI -AdditionalOperationDirectory "L:\operations" -OperationName "DiffVI" -OldVI "%vi1%" -NewVI "%vi2%" -OutputDir "%working_dir%"
+	LabVIEWCLI -AdditionalOperationDirectory "L:\operations" -OperationName "DiffVI" -OldVI "%vi1%" -NewVI "%vi2%" -OutputDir "%CD%\\PICREPO\\"
 :END

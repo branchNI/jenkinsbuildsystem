@@ -31,8 +31,9 @@ def call(viPath, utfPath, lvVersion) {
 			}
 		}
 
-		stage ('Make Temp Directory'){
+		stage ('Create Directories'){
           bat 'mkdir TEMPDIR'
+		  bat 'mkdir PICREPO'
         }
 		
 		stage ('Simple VI Test') {
@@ -48,14 +49,11 @@ def call(viPath, utfPath, lvVersion) {
 		
 		echo 'Running diff...'
 		
-		// If this change is a pull request and the DIFFING_PIC_REPO variable is set on the jenkins master, diff the VIs.
+		// If this change is a pull request, diff the VIs.
 		echo 'CHANGE_ID: '
 		echo ${env.CHANGE_ID}
 		
-		echo 'DIFFING_PIC_REPO: '
-		echo ${env.DIFFING_PIC_REPO}
-		
-		if (env.CHANGE_ID && env.DIFFING_PIC_REPO) {
+		if (env.CHANGE_ID) {
 			stage ('Diff VIs'){
 				try {
 				timeout(time: 60, unit: 'MINUTES') {
