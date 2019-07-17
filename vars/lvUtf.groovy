@@ -5,6 +5,6 @@ def call(lvVersion, utf_path) {
 	
 	echo 'Running unit tests on \"${utfProjectPath}\"'
 
-	bat python -u \"${stepsDir}\\labview_utf.py\" \"${utfProjectPath\" \"${reportPath}\" ${lvVersion}
+	bat "python -u \"${stepsDir}\\labview_utf.py\" \"${utfProjectPath\" \"${reportPath}\" ${lvVersion}"
 }
 
