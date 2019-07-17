@@ -49,8 +49,16 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME, PIC_REPO) {
 		echo 'Running unit tests...'
 		
 		stage ('Unit Tests') {
-			//bat "LabVIEWCLI -LabVIEWPATH ${lvPath} -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath \"%CD%\\TEMPDIR\\report.xml\""
-			bat "LabVIEWCLI -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath \"%CD%\\TEMPDIR\\report.xml\""
+			try {
+				timeout(time: 60, unit: 'MINUTES') {
+					lvUtf(lvVersion, \"%CD%\\${utfPath}\", \"%CD%\\TEMPDIR\\report.xml\")
+					echo 'Unit tests Succeeded!
+				}
+				} catch (err) {
+					currentBuild.result = "SUCCESS"
+					echo "Unit Tests Failed: ${err}"
+				}
+			}
 		}
 		
 		echo 'Running diff...'
