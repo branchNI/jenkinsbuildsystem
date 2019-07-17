@@ -1,5 +1,5 @@
 def call(lvVersion) {
-	def diffDir = "${WORKSPACE}\\diff_dir"
+	def diffDir = "${WORKSPACE}\\DIFFDIR"
 	def stepsDir = "${WORKSPACE}\\jenkinsbuildsystem\\steps"
 	bat "if exist ${diffDir} rmdir /s /q ${diffDir}"
 	bat "mkdir ${diffDir}"

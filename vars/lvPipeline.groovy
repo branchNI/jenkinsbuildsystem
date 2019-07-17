@@ -43,6 +43,7 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME) {
 		stage ('Create Directories'){
           bat 'mkdir TEMPDIR'
 		  bat 'mkdir PICREPO'
+		  bat 'mkdir DIFFDIR'
         }
 		
 		stage ('Simple VI Test') {
