@@ -3,7 +3,7 @@ def PULL_REQUEST = env.CHANGE_ID
 
 //ENTER THE ABOVE INFORMATION
 
-def call(viPath, utfPath, lvVersion) {
+def call(viPath, utfPath, lvVersion, lvPath) {
 
 	switch(lvVersion){  //This is to abstract out the different Jenkinsfile conventions of setting version to 14.0 instead of 2014.
 	  case "18.0":
@@ -37,14 +37,14 @@ def call(viPath, utfPath, lvVersion) {
         }
 		
 		stage ('Simple VI Test') {
-			bat "LabVIEWCLI -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
+			bat "LabVIEWCLI -LabVIEWPATH ${lvPath} -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
 			sleep(time: 3, unit: "SECONDS")
 		}
 		
 		echo 'Running unit tests...'
 		
 		stage ('Unit Tests') {
-			bat "LabVIEWCLI -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath \"%CD%\\TEMPDIR\\report.xml\""
+			bat "LabVIEWCLI -LabVIEWPATH ${lvPath} -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath \"%CD%\\TEMPDIR\\report.xml\""
 		}
 		
 		echo 'Running diff...'
