@@ -44,7 +44,8 @@ def call(viPath, utfPath, lvVersion, lvPath) {
 		echo 'Running unit tests...'
 		
 		stage ('Unit Tests') {
-			bat "LabVIEWCLI -LabVIEWPATH ${lvPath} -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath \"%CD%\\TEMPDIR\\report.xml\""
+			//bat "LabVIEWCLI -LabVIEWPATH ${lvPath} -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath \"%CD%\\TEMPDIR\\report.xml\""
+			bat "LabVIEWCLI -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath \"%CD%\\TEMPDIR\\report.xml\""
 		}
 		
 		echo 'Running diff...'
