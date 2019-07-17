@@ -58,9 +58,8 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME, PIC_REPO) {
 					currentBuild.result = "SUCCESS"
 					echo "Unit Tests Failed: ${err}"
 				}
-			}
 		}
-		
+
 		echo 'Running diff...'
 		
 		// If this change is a pull request, diff the VIs.
