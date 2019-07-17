@@ -70,10 +70,6 @@ def call(viPath, utfPath, lvVersion) {
 			bat "python github_commenter.py -t \"${GITHUB_ACCESS_TOKEN}\" -d \"C:\\Users\\Brandon\\Documents\\Diffing\\output\" -p \"${PULL_REQUEST}\" -i \"${GITHUB_USERNAME}/${GITHUB_REPONAME}/pr-${PULL_REQUEST}\" -r \"${GITHUB_USERNAME}/${GITHUB_REPONAME}\""
 		}
 		*/
-		
-		stage ('Post-Clean'){
-          postClean()
-        }    
 	}
 }
 
