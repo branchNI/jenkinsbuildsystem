@@ -46,8 +46,6 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME) {
 		  bat 'mkdir DIFFDIR'
         }
 		
-		/*
-		
 		stage ('Simple VI Test') {
 			//bat "LabVIEWCLI -LabVIEWPATH ${lvPath} -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
 			bat "LabVIEWCLI -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
@@ -60,8 +58,6 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME) {
 			//bat "LabVIEWCLI -LabVIEWPATH ${lvPath} -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath \"%CD%\\TEMPDIR\\report.xml\""
 			bat "LabVIEWCLI -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath \"%CD%\\TEMPDIR\\report.xml\""
 		}
-		
-		*/
 		
 		echo 'Running diff...'
 		
@@ -79,14 +75,6 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME) {
 				}
 			}
 		}		
-		
-		/*
-		echo 'Posting comment to PR...'
-		
-		stage('Comment') {
-			bat "python github_commenter.py -t \"${GITHUB_ACCESS_TOKEN}\" -d \"C:\\Users\\Brandon\\Documents\\Diffing\\output\" -p \"${PULL_REQUEST}\" -i \"${GITHUB_USERNAME}/${GITHUB_REPONAME}/pr-${PULL_REQUEST}\" -r \"${GITHUB_USERNAME}/${GITHUB_REPONAME}\""
-		}
-		*/
 	}
 }
 
