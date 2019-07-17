@@ -1,4 +1,4 @@
-def call(lvVersion, ORG_NAME) {
+def call(lvVersion, ORG_NAME, PIC_REPO) {
 	def diffDir = "${WORKSPACE}\\DIFFDIR"
 	def stepsDir = "${WORKSPACE}\\jenkinsbuildsystem\\steps"
 	def prNum = env.CHANGE_ID
@@ -9,5 +9,5 @@ def call(lvVersion, ORG_NAME) {
 
 	bat "python -u \"${stepsDir}\\labview_diff.py\" \"${WORKSPACE}\" \"${diffDir}\" ${lvVersion} --target=origin/master"
     
-	//bat "python -u \"${stepsDir}\\github_commenter.py\" --token=\"${gitHubdifftoken}\" --pic-dir=\"${diffDir}\" --pull-req=\"${env.CHANGE_ID}\" --info=\"${ORG_NAME}/${repo}/${env.CHANGE_ID}\" --pic-repo=\"${ORG_NAME}/${repo}\""
+	bat "python -u \"${stepsDir}\\github_commenter.py\" --token=\"${gitHubdifftoken}\" --pic-dir=\"${diffDir}\" --pull-req=\"${env.CHANGE_ID}\" --info=\"${PIC_REPO}\""
 }
