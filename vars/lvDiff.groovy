@@ -1,10 +1,10 @@
 def call(lvVersion) {
 	def diffDir = "${WORKSPACE}\\DIFFDIR"
 	def stepsDir = "${WORKSPACE}\\jenkinsbuildsystem\\steps"
-	/*
-	bat "if exist ${diffDir} rmdir /s /q ${diffDir}"
-	bat "mkdir ${diffDir}"
-	*/
+	
+	//bat "if exist ${diffDir} rmdir /s /q ${diffDir}"
+	//bat "mkdir ${diffDir}"
+	
 	
 	echo 'Running LabVIEW diff build between origin/master and this commit'
 
