@@ -27,7 +27,7 @@ def diff_vi(old_vi, new_vi, output_dir, workspace, lv_version):
     command_args = [
         "LabVIEWCLI.exe",
         "-LabVIEWPath", version_path,
-        "-AdditionalOperationDirectory", workspace + r"\niveristand-custom-device-build-tools\lv\operations\\",
+        "-AdditionalOperationDirectory", workspace + r"\steps\operations\\",
         "-OperationName", "DiffVI",
         "-NewVI", new_vi,
         "-OutputDir", output_dir,
