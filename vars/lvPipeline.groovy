@@ -31,14 +31,10 @@ def call(viPath, utfPath, lvVersion) {
 			}
 		}
 
-/*
 		stage ('Create Directories'){
           bat 'mkdir TEMPDIR'
 		  bat 'mkdir PICREPO'
         }
-	
-*/	
-		/*
 		
 		stage ('Simple VI Test') {
 			bat "LabVIEWCLI -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
@@ -51,11 +47,7 @@ def call(viPath, utfPath, lvVersion) {
 			bat "LabVIEWCLI -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath \"%CD%\\TEMPDIR\\report.xml\""
 		}
 		
-		*/
-		
 		echo 'Running diff...'
-		
-		/*
 		
 		// If this change is a pull request, diff the VIs.
 		echo 'CHANGE_ID: '
@@ -74,8 +66,6 @@ def call(viPath, utfPath, lvVersion) {
 				}
 			}
 		}		
-		
-		*/
 		
 		/*
 		echo 'Posting comment to PR...'
