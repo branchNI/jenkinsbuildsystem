@@ -36,6 +36,8 @@ def call(viPath, utfPath, lvVersion) {
 		  bat 'mkdir PICREPO'
         }
 		
+		/*
+		
 		stage ('Simple VI Test') {
 			bat "LabVIEWCLI -OperationName RunVI -VIPath \"%CD%\\${viPath}\" hello"
 			sleep(time: 3, unit: "SECONDS")
@@ -47,11 +49,13 @@ def call(viPath, utfPath, lvVersion) {
 			bat "LabVIEWCLI -OperationName RunUnitTests -ProjectPath \"%CD%\\${utfPath}\" -JUnitReportPath \"%CD%\\TEMPDIR\\report.xml\""
 		}
 		
+		*/
+		
 		echo 'Running diff...'
 		
 		// If this change is a pull request, diff the VIs.
 		echo 'CHANGE_ID: '
-		echo ${env.CHANGE_ID}
+		echo env.CHANGE_ID
 		
 		if (env.CHANGE_ID) {
 			stage ('Diff VIs'){
