@@ -70,7 +70,7 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME) {
 			stage ('Diff VIs'){
 				try {
 				timeout(time: 60, unit: 'MINUTES') {
-					lvDiff(lvVersion)
+					lvDiff(lvVersion, ORG_NAME)
 					echo 'Diff Succeeded!'
 				}
 				} catch (err) {
