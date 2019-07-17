@@ -9,7 +9,7 @@ def call(lvVersion, ORG_NAME) {
 
 	bat "python -u \"${stepsDir}\\labview_diff.py\" \"${WORKSPACE}\" \"${diffDir}\" ${lvVersion} --target=origin/master"
     
-	bat "python -u \"${stepsDir}\\github_commenter.py\" -t "${gitHubdifftoken}" -d \"${diffDir}\" -p env.CHANGE_ID i- \"ORG_NAME/${repo}/${env.CHANGE_ID}\" -r \"ORG_NAME/${repo}\""
+	//bat "python -u \"${stepsDir}\\github_commenter.py\" -t "${gitHubdifftoken}" -d \"${diffDir}\" -p env.CHANGE_ID i- \"ORG_NAME/${repo}/${env.CHANGE_ID}\" -r \"ORG_NAME/${repo}\""
 	
 	//bat "@python -u \"${resourcesDir}/github_commenter.py\" --token="${githubDiffToken}" --pic-dir=\"${diffDir}\" --pull-req=\"${CHANGE_ID}\" --info=\"${JOB_NAME}\" --pic-repo=\"${diffingPicRepo}\"
 	
