@@ -22,7 +22,7 @@ def call(viPath, utfPath, lvVersion, lvPath) {
 		
 		//TEST
 		echo 'job name: '
-		echo env.JOB_NAME
+		echo env.BUILD_URL
 
 		stage ('Pre-Clean'){
 		preClean()
