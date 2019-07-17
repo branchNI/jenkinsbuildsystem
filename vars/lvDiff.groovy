@@ -1,9 +1,11 @@
 def call(lvVersion) {
 	def diffDir = "${WORKSPACE}\\DIFFDIR"
 	def stepsDir = "${WORKSPACE}\\jenkinsbuildsystem\\steps"
+	/*
 	bat "if exist ${diffDir} rmdir /s /q ${diffDir}"
 	bat "mkdir ${diffDir}"
-
+	*/
+	
 	echo 'Running LabVIEW diff build between origin/master and this commit'
 
 	bat "git difftool --no-prompt --extcmd=\"${WORKSPACE}\\jenkinsbuildsystem\\steps\\labview-diff.bat\" \$LOCAL \$REMOTE diff_dir ${lvVersion}\" origin/master HEAD"
