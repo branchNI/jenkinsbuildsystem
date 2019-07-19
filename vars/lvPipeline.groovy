@@ -3,7 +3,7 @@ def PULL_REQUEST = env.CHANGE_ID
 
 //ENTER THE ABOVE INFORMATION
 
-def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME, PIC_REPO) {
+def call(viPath, utfPath, lvVersion, lvPath) {
 
 	switch(lvVersion){  //This is to abstract out the different Jenkinsfile conventions of setting version to 14.0 instead of 2014.
 	  case "18.0":
@@ -36,13 +36,12 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME, PIC_REPO) {
 			
 			echo 'Cloning build tools...'
 			timeout(time: 5, unit: 'MINUTES') {
-				cloneBuildTools(ORG_NAME)
+				cloneBuildTools()
 			}
 		}
 
 		stage ('Create Directories'){
           bat 'mkdir TEMPDIR'
-		  bat 'mkdir PICREPO'
 		  bat 'mkdir DIFFDIR'
         }
 		
@@ -67,7 +66,7 @@ def call(viPath, utfPath, lvVersion, lvPath, ORG_NAME, PIC_REPO) {
 			stage ('Diff VIs'){
 				try {
 				timeout(time: 60, unit: 'MINUTES') {
-					lvDiff(lvVersion, ORG_NAME, PIC_REPO)
+					lvDiff(lvVersion)
 					echo 'Diff Succeeded!'
 				}
 				} catch (err) {
