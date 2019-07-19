@@ -8,5 +8,5 @@ def call(lvVersion) {
 
 	bat "python -u \"${stepsDir}\\labview_diff.py\" \"${WORKSPACE}\" \"${diffDir}\" ${lvVersion} --target=origin/master"
     
-	bat "python -u \"${stepsDir}\\github_commenter.py\" --token=\"${ACCESS_TOKEN}\" --pic-dir=\"${diffDir}\" --pull-req=\"${env.CHANGE_ID}\" --info=\"${ORG_NAME}/${repo}/${env.CHANGE_ID}\" --pic-repo=\"${PIC_REPO}\""
+	bat "python -u \"${stepsDir}\\github_commenter.py\" --token=\"${ACCESS_TOKEN}\" --pic-dir=\"${diffDir}\" --pull-req=\"${env.CHANGE_ID}\" --info=\"${ORG_NAME}/${repo}/${env.CHANGE_ID}\" --pic-repo=\"${ORG_NAME}/${PIC_REPO}\""
 }
