@@ -106,14 +106,14 @@ def get_changed_labview_files(target_ref):
         yield match.group(1), match.group(2)
 
 
-def diff_repo(workspace, output_dir, target_branch, lv_version):
+def diff_repo(workspace, output_dir, target_branch, lv_version, lv_bitness):
     diffs = get_changed_labview_files(target_branch)
 
     with export_repo(target_branch) as directory:
         for status, filename in diffs:
             if status == "A":
                 print("Diffing added file: " + filename)
-                diff_vi(None, path.abspath(filename), path.abspath(output_dir), workspace, lv_version)
+                diff_vi(None, path.abspath(filename), path.abspath(output_dir), workspace, lv_version, lv_bitness)
             elif status == "M":
                 print("Diffing modified file: " + filename)
                 # LabVIEW won't let us load two files with the same name into memory,
