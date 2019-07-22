@@ -19,10 +19,6 @@ def call(lvProjectPath, lvVersion, lvBitness) {
 
 	node {
 		echo 'Starting Build...'
-		
-		//TEST
-		echo 'job name: '
-		echo env.JOB_NAME
 
 		stage ('Pre-Clean'){
 		preClean()

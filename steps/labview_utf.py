@@ -46,7 +46,7 @@ def labview_path_from_year(year):
         return r"{0}\National Instruments\LabVIEW {1}\LabVIEW.exe".format(os.environ["ProgramFiles(x86)"], year)
     elif bitness == "64":
         return r"{0}\National Instruments\LabVIEW {1}\LabVIEW.exe".format(os.environ["ProgramFiles"], year)
-    else
+    else:
         return None
 
 

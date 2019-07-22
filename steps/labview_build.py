@@ -46,7 +46,7 @@ def labview_path_from_year(year, bitness):
         return r"{0}\National Instruments\LabVIEW {1}\LabVIEW.exe".format(os.environ["ProgramFiles(x86)"], year)
     elif bitness == "64":
         return r"{0}\National Instruments\LabVIEW {1}\LabVIEW.exe".format(os.environ["ProgramFiles"], year)
-    else
+    else:
         return None
 
 if __name__ == "__main__":
@@ -59,8 +59,8 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "target_name",
-        help="Name of the target in the project containing the build specification"
-        default = "My Computer"
+        help="Name of the target in the project containing the build specification",
+        default="My Computer"
     )
     parser.add_argument(
         "build_spec_name",
@@ -68,7 +68,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "labview_version",
-        help="The year version of LabVIEW to use for diffing",
+        help="The year version of LabVIEW to use for diffing"
     )
     parser.add_argument(
         "labview_bitness",
