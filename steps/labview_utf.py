@@ -37,7 +37,7 @@ def run_unit_tests(project_path, report_path, lv_version, lv_bitness):
         traceback.print_exc()
 
 
-def labview_path_from_year(year):
+def labview_path_from_year(year, bitness):
     env_key = "labviewPath_" + str(year)
     if env_key in os.environ:
         return os.environ[env_key]

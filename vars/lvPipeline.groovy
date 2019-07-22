@@ -41,6 +41,17 @@ def call(lvProjectPath, lvVersion, lvBitness) {
 		  bat 'mkdir DIFFDIR'
         }
 		
+		echo 'Building build spec...'
+		
+		/*
+		stage('Build project') {
+			try {
+				timeout(time: 60, unit: 'MINUTES') {
+					
+				}
+			}
+		}
+		*/
 		echo 'Running unit tests...'
 		
 		stage ('Unit Tests') {
