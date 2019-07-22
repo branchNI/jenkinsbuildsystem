@@ -23,7 +23,7 @@ def diff_vi(old_vi, new_vi, output_dir, workspace, lv_version, lv_bitness):
     :param lv_bitness: Bitness of LabVIEW (either "32" or "64")
     """
 
-    version_path = labview_path_from_year(lv_version)
+    version_path = labview_path_from_year(lv_version, lv_bitness)
 
     command_args = [
         "LabVIEWCLI.exe",
@@ -48,7 +48,7 @@ def diff_vi(old_vi, new_vi, output_dir, workspace, lv_version, lv_bitness):
             file.write(new_vi + "\n")
 
 
-def labview_path_from_year(year):
+def labview_path_from_year(year, bitness):
     env_key = "labviewPath_" + str(year)
     if env_key in os.environ:
         return os.environ[env_key]

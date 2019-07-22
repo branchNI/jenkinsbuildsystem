@@ -18,7 +18,7 @@ def run_unit_tests(project_path, report_path, lv_version, lv_bitness):
     :param lv_version: The year version of LabVIEW to use for unit testing
     """
 
-    version_path = labview_path_from_year(lv_version)
+    version_path = labview_path_from_year(lv_version, lv_bitness)
 
     command_args = [
         "LabVIEWCLI.exe",
