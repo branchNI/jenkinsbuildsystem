@@ -62,7 +62,7 @@ def call(lvProjectPath, lvVersion, lvBitness) {
 			stage ('Diff VIs'){
 				try {
 				timeout(time: 60, unit: 'MINUTES') {
-					lvDiff(lvVersion)
+					lvDiff(lvVersion, lvBitness)
 					echo 'Diff Succeeded!'
 				}
 				} catch (err) {
