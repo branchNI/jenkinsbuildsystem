@@ -4,5 +4,5 @@ def call(lvProjectPath, targetName, buildSpecName, lvVersion, lvBitness) {
 		
 	echo 'Running LabVIEW build spec on project'
 
-	bat "python -u \"${stepsDir}\\labview_build.py\" \"${projectPath}\" \"${targetName}\" \"${buildSpecName}\" ${lvVersion} ${lvBitness} --target=origin/master"
+	bat "python -u \"${stepsDir}\\labview_build.py\" \"${projectPath}\" \"${targetName}\" \"${buildSpecName}\" ${lvVersion} ${lvBitness}"
 }

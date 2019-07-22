@@ -50,7 +50,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 				}
 				} catch (err) {
 					currentBuild.result = "SUCCESS"
-					echo "Project Build Failoed: ${err}"
+					echo "Project Build Failed: ${err}"
 				}
 		}
 

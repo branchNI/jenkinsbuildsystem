@@ -123,7 +123,7 @@ def diff_repo(workspace, output_dir, target_branch, lv_version, lv_bitness):
                 old_file = path.join(directory.name, filename)
                 copied_file = path.join(path.dirname(old_file), "_COPY_" + path.basename(filename))
                 shutil.copy(old_file, copied_file)
-                diff_vi(copied_file, path.abspath(filename), path.abspath(output_dir), workspace, lv_version)
+                diff_vi(copied_file, path.abspath(filename), path.abspath(output_dir), workspace, lv_version, lv_bitness)
             else:
                 print("Unknown file status: " + filename)
 
