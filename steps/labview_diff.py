@@ -9,7 +9,7 @@ from contextlib import contextmanager
 from os import path
 
 
-def diff_vi(old_vi, new_vi, output_dir, workspace, lv_version):
+def diff_vi(old_vi, new_vi, output_dir, workspace, lv_version, lv_bitness):
     """
     Generates a diff of LabVIEW VIs
 
@@ -20,6 +20,7 @@ def diff_vi(old_vi, new_vi, output_dir, workspace, lv_version):
     :param output_dir: The directory in which to store output
     :param workspace: The directory above the niveristand-custom-device-build-tools
     :param lv_version: The year version of LabVIEW to use for diffing
+    :param lv_bitness: Bitness of LabVIEW (either "32" or "64")
     """
 
     version_path = labview_path_from_year(lv_version)
@@ -32,8 +33,6 @@ def diff_vi(old_vi, new_vi, output_dir, workspace, lv_version):
         "-NewVI", new_vi,
         "-OutputDir", output_dir,
     ]
-    
-    print("lv ops: " + workspace + r"\jenkinsbuildsystem\lv\operations\\")
 
     if old_vi:
         command_args.extend(["-OldVI", old_vi])
@@ -54,7 +53,12 @@ def labview_path_from_year(year):
     if env_key in os.environ:
         return os.environ[env_key]
 
-    return r"{0}\National Instruments\LabVIEW {1}\LabVIEW.exe".format(os.environ["ProgramFiles(x86)"], year)
+    if bitness == "32":
+        return r"{0}\National Instruments\LabVIEW {1}\LabVIEW.exe".format(os.environ["ProgramFiles(x86)"], year)
+    elif bitness == "64":
+        return r"{0}\National Instruments\LabVIEW {1}\LabVIEW.exe".format(os.environ["ProgramFiles"], year)
+    else
+        return None
 
 
 def export_repo(target_ref):
@@ -146,7 +150,11 @@ if __name__ == "__main__":
         help="Target branch or ref the diff is being generated against",
         default="origin/master"
     )
+    parser.add_argument(
+        "labview_bitness",
+        help="Bitness of LabVIEW (either \"32\" or \"64\")"
+    )
 
     args = parser.parse_args()
 
-    diff_repo(args.workspace, args.output_dir, args.target, args.labview_version)
+    diff_repo(args.workspace, args.output_dir, args.target, args.labview_version, args.lv_bitness)

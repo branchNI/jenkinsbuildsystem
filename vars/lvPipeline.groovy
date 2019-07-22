@@ -3,7 +3,7 @@ def PULL_REQUEST = env.CHANGE_ID
 
 //ENTER THE ABOVE INFORMATION
 
-def call(utfPath, lvVersion, lvPath) {
+def call(lvProjectPath, lvVersion, lvBitness) {
 
 	switch(lvVersion){  //This is to abstract out the different Jenkinsfile conventions of setting version to 14.0 instead of 2014.
 	  case "18.0":
@@ -50,7 +50,7 @@ def call(utfPath, lvVersion, lvPath) {
 		stage ('Unit Tests') {
 			try {
 				timeout(time: 60, unit: 'MINUTES') {
-					lvUtf(lvVersion, utfPath)
+					lvUtf(lvProjectPath, lvVersion, lvBitness)
 					echo 'Unit tests Succeeded!'
 				}
 				} catch (err) {
