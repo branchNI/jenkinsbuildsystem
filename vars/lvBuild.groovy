@@ -1,10 +1,8 @@
 def call(lvProjectPath, targetName, buildSpecName, lvVersion, lvBitness) {
-	def diffDir = "${WORKSPACE}\\DIFFDIR"
-	def stepsDir = "${WORKSPACE}\\${BUILD_SYSTEM_REPO}\\steps"
-	def prNum = env.CHANGE_ID
-	def repo = getComponentParts()['repo']
-
-	echo 'Running LabVIEW diff build between origin/master and this commit'
+	def stepsDir = "${WORKSPACE}\\jenkinsbuildsystem\\steps"
+	def projectPath = "${WORKSPACE}\\${lvProjectPath}"
+		
+	echo 'Running LabVIEW build spec \"${buildSpecName}\" in \"${lvProjectPath}"'
 
 	bat "python -u \"${stepsDir}\\labview_diff.py\" \"${WORKSPACE}\" \"${diffDir}\" ${lvVersion} ${lvBitness} --target=origin/master"
     

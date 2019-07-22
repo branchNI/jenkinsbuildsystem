@@ -73,4 +73,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    run_unit_tests(args.project_path, args.report_path, args.labview_version, args.lv_bitness)
+    run_unit_tests(args.project_path, args.report_path, args.labview_version, args.labview_bitness)

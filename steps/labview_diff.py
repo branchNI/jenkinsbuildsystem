@@ -157,4 +157,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    diff_repo(args.workspace, args.output_dir, args.target, args.labview_version, args.lv_bitness)
+    diff_repo(args.workspace, args.output_dir, args.target, args.labview_version, args.labview_bitness)

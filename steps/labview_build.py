@@ -77,4 +77,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    build_lv_project(args.project_path, args.target_name, args.build_spec_name, args.lv_version, args.lv_bitness)
+    build_lv_project(args.project_path, args.target_name, args.build_spec_name, args.labview_version, args.labview_bitness)
