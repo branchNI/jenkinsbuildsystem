@@ -23,6 +23,8 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		stage ('Pre-Clean'){
 			preClean()
 		}
+		
+		/*
 	  
 		stage('SCM Checkout') {
 			echo 'Attempting to get source from repo...'
@@ -84,6 +86,8 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 				}
 			}
 		}
+		
+		*/
 		
 		stage('Post Clean') {
 			postClean()
