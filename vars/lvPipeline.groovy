@@ -24,6 +24,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 			preClean()
 		}
 		
+		
 		/*
 	  
 		stage('SCM Checkout') {
@@ -37,11 +38,15 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 				cloneBuildTools()
 			}
 		}
+		
+		*/
 
 		stage ('Create Directories'){
           bat 'mkdir TEMPDIR'
 		  bat 'mkdir DIFFDIR'
         }
+		
+		/*
 		
 		echo 'Building build spec...'
 		
