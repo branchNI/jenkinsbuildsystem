@@ -20,12 +20,11 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 	node {
 		echo 'Starting Build...'
 
+		/*
+		
 		stage ('Pre-Clean'){
 			preClean()
 		}
-		
-		
-		/*
 	  
 		stage('SCM Checkout') {
 			echo 'Attempting to get source from repo...'
@@ -38,15 +37,11 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 				cloneBuildTools()
 			}
 		}
-		
-		*/
 
 		stage ('Create Directories'){
           bat 'mkdir TEMPDIR'
 		  bat 'mkdir DIFFDIR'
         }
-		
-		/*
 		
 		echo 'Building build spec...'
 		
