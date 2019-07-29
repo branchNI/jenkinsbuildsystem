@@ -1,4 +1,4 @@
 def call() {
 	echo 'Archiving all artifacts'
-	archiveArtifacts artifacts: 'TEMP_DIR\**'
+	archiveArtifacts artifacts: 'TEMP_DIR/**'
 }
