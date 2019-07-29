@@ -21,7 +21,7 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		echo 'Starting Build...'
 
 		stage ('Pre-Clean'){
-		preClean()
+			preClean()
 		}
 	  
 		stage('SCM Checkout') {
@@ -83,6 +83,10 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 					echo "Diff Failed: ${err}"
 				}
 			}
+		}
+		
+		stage('Post Clean') {
+			postClean()
 		}
 	}
 }
