@@ -41,8 +41,6 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 		  bat 'mkdir DIFFDIR'
         }
 		
-		/*
-		
 		echo 'Building build spec...'
 		
 		stage('Build project') {
@@ -86,8 +84,6 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 				}
 			}
 		}
-		
-		*/
 		
 		stage('Post Clean') {
 			postClean()
