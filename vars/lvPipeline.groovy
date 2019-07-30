@@ -19,8 +19,6 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 
 	node {
 		echo 'Starting Build...'
-
-		/*
 		
 		stage ('Pre-Clean'){
 			preClean()
@@ -42,6 +40,8 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
           bat 'mkdir TEMPDIR'
 		  bat 'mkdir DIFFDIR'
         }
+		
+		/*
 		
 		echo 'Building build spec...'
 		
