@@ -49,8 +49,8 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 				lvBuild(lvProjectPath, "My Computer", lvBuildSpecName, lvVersion, lvBitness)
 				}
 				} catch (Exception err) {
-					currentBuild.result = "SUCCESS"
 					echo "Project Build Failed: ${err}"
+					currentBuild.result = "FAILURE"
 				}
 		}
 
@@ -63,8 +63,8 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 					echo 'Unit tests Succeeded!'
 				}
 				} catch (Exception err) {
-					currentBuild.result = "SUCCESS"
 					echo "Unit Tests Failed: ${err}"
+					currentBuild.result = "FAILURE"
 				}
 		}
 
@@ -79,8 +79,8 @@ def call(lvProjectPath, lvBuildSpecName, lvVersion, lvBitness) {
 					echo 'Diff Succeeded!'
 				}
 				} catch (Exception err) {
-					currentBuild.result = "SUCCESS"
 					echo "Diff Failed: ${err}"
+					currentBuild.result = "FAILURE"
 				}
 			}
 		}
